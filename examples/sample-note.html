@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Active vs. Passive Voice — Study Editor Fixture</title>
+  <link rel="stylesheet" href="../dist/study-editor.min.css" />
+</head>
+<body>
+  <div id="study-root"></div>
+
+  <script id="note-data" type="application/json">
+  {
+    "noteId": "grammar-active-passive-01",
+    "version": 1,
+    "title": "Active vs. Passive Voice",
+    "blocks": [
+      {
+        "id": "b1",
+        "type": "paragraph",
+        "html": "Active voice <strong>places</strong> the <span data-color=\"red\" data-bind=\"1\" data-note=\"Agent = entity performing the action\">agent</span> in the <u>subject</u> seat, while passive voice promotes the <span data-color=\"blue\" data-bind=\"2\">patient</span> using <span data-color=\"purple\"><code>be + V3</code></span> (<span data-mask=\"true\">past participle</span>)."
+      },
+      {
+        "id": "b2",
+        "type": "heading",
+        "level": 2,
+        "html": "Minimal Pair Comparison"
+      },
+      {
+        "id": "b3",
+        "type": "gutter-diff",
+        "wrongLabel": "PASSIVE (VERBOSE)",
+        "wrongHtml": "The <span data-color=\"blue\" data-bind=\"2\">database migration</span> was executed by the <span data-color=\"red\" data-bind=\"1\">deployment script</span>.",
+        "correctLabel": "ACTIVE (DIRECT)",
+        "correctHtml": "The <span data-color=\"red\" data-bind=\"1\">deployment script</span> <strong>executed</strong> the <span data-color=\"blue\" data-bind=\"2\">database migration</span>."
+      },
+      {
+        "id": "b4",
+        "type": "tabs",
+        "activeTabId": "t1",
+        "tabs": [
+          {
+            "id": "t1",
+            "label": "When to Use Active",
+            "html": "Use active voice when the <span data-color=\"red\">agent</span> is known and accountability matters."
+          },
+          {
+            "id": "t2",
+            "label": "When Passive Wins",
+            "html": "Use passive voice when the <span data-color=\"blue\">recipient</span> is the topic or the actor is <span data-color=\"gray\">irrelevant boilerplate</span>."
+          }
+        ]
+      },
+      {
+        "id": "b5",
+        "type": "spotlight",
+        "language": "typescript",
+        "code": "function parseVoice(clause: Clause) {\n  if (clause.aux === 'be' && clause.participle) {\n    return { voice: 'passive', patient: clause.subject };\n  }\n  return { voice: 'active', agent: clause.subject };\n}",
+        "steps": [
+          {
+            "id": "s1",
+            "lines": [2, 3],
+            "html": "Check for the <span data-color=\"purple\"><code>be</code></span> auxiliary plus past participle to identify passive voice."
+          },
+          {
+            "id": "s2",
+            "lines": [5, 5],
+            "html": "Default fallback treats <code>clause.subject</code> as the <span data-color=\"red\">agent</span>."
+          }
+        ]
+      },
+      {
+        "id": "b6",
+        "type": "peek",
+        "buttonLabel": "Peek Tense Matrix",
+        "title": "Active vs. Passive Tense Matrix",
+        "headers": ["Tense", "Active Form", "Passive Form"],
+        "rows": [
+          ["Simple Present", "<code>writes</code>", "<code>is written</code>"],
+          ["Simple Past", "<code>wrote</code>", "<code>was written</code>"],
+          ["Present Perfect", "<code>has written</code>", "<code>has been written</code>"]
+        ]
+      },
+      {
+        "id": "b7",
+        "type": "callout",
+        "tone": "orange",
+        "titleHtml": "Common Trap",
+        "html": "Non-human subjects like <span data-color=\"red\">Timeout errors</span> can still be grammatical agents."
+      },
+      {
+        "id": "b8",
+        "type": "toggle",
+        "open": false,
+        "summaryHtml": "Result: Quick Diagnostic Test",
+        "bodyHtml": "Append <code>by zombies</code> after the verb—if it remains grammatical, the clause is passive."
+      },
+      {
+        "id": "b9",
+        "type": "bullet-list",
+        "items": [
+          { "id": "li1", "html": "Identify the main verb." },
+          { "id": "li2", "html": "Check whether the <u>subject</u> performs or receives the action." }
+        ]
+      },
+      {
+        "id": "b10",
+        "type": "ordered-list",
+        "items": [
+          { "id": "oli1", "html": "Locate the agent." },
+          { "id": "oli2", "html": "Move the agent into subject position." }
+        ]
+      },
+      {
+        "id": "b11",
+        "type": "blockquote",
+        "html": "Clarity favors concrete actors performing concrete actions."
+      },
+      {
+        "id": "b12",
+        "type": "code",
+        "language": "text",
+        "code": "Active:  [Agent] -> [Verb] -> [Patient]\nPassive: [Patient] -> [be + V3] -> (by [Agent])"
+      },
+      {
+        "id": "b13",
+        "type": "paragraph",
+        "html": ""
+      }
+    ]
+  }
+  </script>
+
+  <script
+    src="../dist/study-editor.min.js"
+    onerror="(function(){var r=document.getElementById('study-root'),d=document.getElementById('note-data');if(!r||!d)return;try{var n=JSON.parse(d.textContent||'{}');r.innerHTML='<div style=&quot;padding:24px;font-family:sans-serif;&quot;><p style=&quot;color:#f59e0b;font-size:12px;&quot;>Offline / Read-Only Fallback (CDN unreachable)</p><h1>'+(n.title||'')+'</h1>'+(n.blocks||[]).map(function(b){return '<div style=&quot;margin:12px 0;&quot;>'+(b.html||b.code||'')+'</div>';}).join('')+'</div>';}catch(e){r.textContent='Failed to parse #note-data JSON.';}})()"
+  ></script>
+</body>
+</html>

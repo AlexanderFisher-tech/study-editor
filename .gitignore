@@ -1,0 +1,8 @@
+node_modules/
+coverage/
+playwright-report/
+test-results/
+.DS_Store
+
+# IMPORTANT: dist/study-editor.min.js and dist/study-editor.min.css MUST remain
+# tracked in Git so cdn.jsdelivr.net/gh/<owner>/study-editor@v1.0.0/dist/... serves them.
